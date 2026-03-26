@@ -71,6 +71,29 @@ section{padding:7rem 0}
 .feature-card h3{margin-bottom:.6rem;position:relative;z-index:1}
 .feature-card p{font-size:.9rem;position:relative;z-index:1}
 
+/* ── Use Cases ── */
+.usecases-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1rem;margin-top:3rem}
+.usecase-card{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:1.5rem;cursor:pointer;transition:all .4s;overflow:hidden}
+.usecase-card:hover{border-color:var(--accent);transform:translateY(-3px)}
+.usecase-card[data-active="true"]{border-color:var(--accent);box-shadow:0 0 30px var(--accent-glow);background:var(--surface2)}
+.uc-icon{font-size:2rem;margin-bottom:.8rem}
+.usecase-card h3{font-size:1rem;margin-bottom:.3rem}
+.uc-short{font-size:.8rem;color:var(--text-dim);margin:0}
+.uc-detail{max-height:0;opacity:0;overflow:hidden;transition:all .4s ease;margin-top:0}
+.usecase-card[data-active="true"] .uc-detail{max-height:300px;opacity:1;margin-top:1rem}
+.usecase-card[data-active="true"] .uc-short{display:none}
+.uc-agents{font-size:.85rem;color:var(--text);margin-bottom:.5rem}
+.uc-pattern{margin-bottom:.6rem}
+.uc-badge{display:inline-block;padding:.2rem .7rem;border-radius:100px;font-size:.7rem;font-weight:600;background:var(--accent-glow);color:var(--accent2);border:1px solid rgba(124,107,240,.3)}
+.uc-detail>p{font-size:.85rem;color:var(--text-dim);margin:0}
+.uc-prompt{font-family:'JetBrains Mono','Fira Code',monospace;font-size:.8rem;line-height:1.6;color:var(--text);background:var(--bg);border:1px solid var(--border);border-radius:10px;padding:1rem;margin-top:.6rem;cursor:pointer;transition:all .2s;position:relative}
+.uc-prompt:hover{border-color:var(--accent);box-shadow:0 0 15px var(--accent-glow)}
+.uc-prompt.copied{border-color:var(--green)}
+.uc-copy-hint{display:block;margin-top:.5rem;font-size:.7rem;color:var(--text-dim);font-family:Inter,-apple-system,sans-serif;transition:color .2s}
+.uc-prompt.copied .uc-copy-hint{color:var(--green)}
+@media(max-width:768px){.usecases-grid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:480px){.usecases-grid{grid-template-columns:1fr}}
+
 /* ── Workflow (interactive timeline) ── */
 .workflow-track{display:flex;flex-direction:column;gap:0;margin-top:3rem;position:relative}
 .workflow-track::before{content:'';position:absolute;left:28px;top:0;bottom:0;width:2px;background:linear-gradient(to bottom,var(--accent),var(--green));opacity:.3}
@@ -220,6 +243,88 @@ footer .links{display:flex;gap:2rem;justify-content:center;margin-bottom:1rem}
         <div class="feature-icon">&#10003;</div>
         <h3>Validation</h3>
         <p>Trigger verification, dry-run testing, and with-skill vs without-skill A/B comparison tests to prove quality gains.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── Use Cases ── -->
+<section id="usecases">
+  <div class="container">
+    <h2 class="reveal">Try These Prompts</h2>
+    <p class="reveal">Copy any prompt into Claude Code after installing Harness. Click to expand.</p>
+    <div class="usecases-grid reveal">
+      <div class="usecase-card" data-active="false">
+        <div class="uc-icon">&#128270;</div>
+        <h3>Deep Research</h3>
+        <p class="uc-short">Multi-agent investigation teams</p>
+        <div class="uc-detail">
+          <div class="uc-pattern"><span class="uc-badge">Fan-out/Fan-in</span></div>
+          <div class="uc-prompt" onclick="event.stopPropagation();copyPrompt(this)">Build a harness for deep research. I need an agent team that can investigate any topic from multiple angles &mdash; web search, academic sources, community sentiment &mdash; then cross-validate findings and produce a comprehensive report.<span class="uc-copy-hint">Click to copy</span></div>
+        </div>
+      </div>
+      <div class="usecase-card" data-active="false">
+        <div class="uc-icon">&#127760;</div>
+        <h3>Website Development</h3>
+        <p class="uc-short">Full-stack build pipeline</p>
+        <div class="uc-detail">
+          <div class="uc-pattern"><span class="uc-badge">Pipeline</span></div>
+          <div class="uc-prompt" onclick="event.stopPropagation();copyPrompt(this)">Build a harness for full-stack website development. The team should handle design, frontend (React/Next.js), backend (API), and QA testing in a coordinated pipeline from wireframe to deployment.<span class="uc-copy-hint">Click to copy</span></div>
+        </div>
+      </div>
+      <div class="usecase-card" data-active="false">
+        <div class="uc-icon">&#127912;</div>
+        <h3>Webtoon Production</h3>
+        <p class="uc-short">Creative team for episodic content</p>
+        <div class="uc-detail">
+          <div class="uc-pattern"><span class="uc-badge">Producer-Reviewer</span></div>
+          <div class="uc-prompt" onclick="event.stopPropagation();copyPrompt(this)">Build a harness for webtoon episode production. I need agents for story writing, character design prompts, panel layout planning, and dialogue editing. They should review each other's work for style consistency.<span class="uc-copy-hint">Click to copy</span></div>
+        </div>
+      </div>
+      <div class="usecase-card" data-active="false">
+        <div class="uc-icon">&#127909;</div>
+        <h3>YouTube Content</h3>
+        <p class="uc-short">End-to-end video planning</p>
+        <div class="uc-detail">
+          <div class="uc-pattern"><span class="uc-badge">Supervisor</span></div>
+          <div class="uc-prompt" onclick="event.stopPropagation();copyPrompt(this)">Build a harness for YouTube content creation. The team should research trending topics, write scripts, optimize titles/tags for SEO, and plan thumbnail concepts &mdash; all coordinated by a supervisor agent.<span class="uc-copy-hint">Click to copy</span></div>
+        </div>
+      </div>
+      <div class="usecase-card" data-active="false">
+        <div class="uc-icon">&#128269;</div>
+        <h3>Code Review</h3>
+        <p class="uc-short">Parallel multi-dimension audit</p>
+        <div class="uc-detail">
+          <div class="uc-pattern"><span class="uc-badge">Fan-out/Fan-in</span></div>
+          <div class="uc-prompt" onclick="event.stopPropagation();copyPrompt(this)">Build a harness for comprehensive code review. I want parallel agents checking architecture, security vulnerabilities, performance bottlenecks, and code style &mdash; then merging all findings into a single report.<span class="uc-copy-hint">Click to copy</span></div>
+        </div>
+      </div>
+      <div class="usecase-card" data-active="false">
+        <div class="uc-icon">&#128218;</div>
+        <h3>Technical Docs</h3>
+        <p class="uc-short">Docs from codebase analysis</p>
+        <div class="uc-detail">
+          <div class="uc-pattern"><span class="uc-badge">Pipeline</span></div>
+          <div class="uc-prompt" onclick="event.stopPropagation();copyPrompt(this)">Build a harness that generates API documentation from this codebase. Agents should analyze endpoints, write descriptions, generate usage examples, and review for completeness.<span class="uc-copy-hint">Click to copy</span></div>
+        </div>
+      </div>
+      <div class="usecase-card" data-active="false">
+        <div class="uc-icon">&#128202;</div>
+        <h3>Data Pipelines</h3>
+        <p class="uc-short">End-to-end data workflows</p>
+        <div class="uc-detail">
+          <div class="uc-pattern"><span class="uc-badge">Hierarchical Delegation</span></div>
+          <div class="uc-prompt" onclick="event.stopPropagation();copyPrompt(this)">Build a harness for designing data pipelines. I need agents for schema design, ETL logic, data validation rules, and monitoring setup that delegate sub-tasks hierarchically.<span class="uc-copy-hint">Click to copy</span></div>
+        </div>
+      </div>
+      <div class="usecase-card" data-active="false">
+        <div class="uc-icon">&#128640;</div>
+        <h3>Marketing Campaign</h3>
+        <p class="uc-short">Campaign asset creation &amp; testing</p>
+        <div class="uc-detail">
+          <div class="uc-pattern"><span class="uc-badge">Producer-Reviewer</span></div>
+          <div class="uc-prompt" onclick="event.stopPropagation();copyPrompt(this)">Build a harness for marketing campaign creation. The team should research the target market, write ad copy, design visual concepts, and set up A/B test plans with iterative quality review.<span class="uc-copy-hint">Click to copy</span></div>
+        </div>
       </div>
     </div>
   </div>
@@ -564,6 +669,26 @@ document.querySelectorAll('.pattern-card').forEach(card => {
     const d = patternData[card.dataset.pattern];
     document.getElementById('detail-title').textContent = d.title;
     document.getElementById('detail-desc').textContent = d.desc;
+  });
+});
+
+// ── Copy prompt from use case ──
+function copyPrompt(el) {
+  const hint = el.querySelector('.uc-copy-hint');
+  const text = el.textContent.replace(hint.textContent, '').trim();
+  navigator.clipboard.writeText(text).then(() => {
+    el.classList.add('copied');
+    hint.textContent = 'Copied!';
+    setTimeout(() => { el.classList.remove('copied'); hint.textContent = 'Click to copy'; }, 2000);
+  });
+}
+
+// ── Use case card toggle ──
+document.querySelectorAll('.usecase-card').forEach(card => {
+  card.addEventListener('click', () => {
+    const isActive = card.dataset.active === 'true';
+    document.querySelectorAll('.usecase-card').forEach(c => c.dataset.active = 'false');
+    if (!isActive) card.dataset.active = 'true';
   });
 });
 

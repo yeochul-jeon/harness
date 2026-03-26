@@ -120,6 +120,66 @@ your-project/
 │           └── references/
 ```
 
+## Use Cases — Try These Prompts
+
+Copy any prompt below into Claude Code after installing Harness:
+
+**Deep Research**
+```
+Build a harness for deep research. I need an agent team that can investigate
+any topic from multiple angles — web search, academic sources, community
+sentiment — then cross-validate findings and produce a comprehensive report.
+```
+
+**Website Development**
+```
+Build a harness for full-stack website development. The team should handle
+design, frontend (React/Next.js), backend (API), and QA testing in a
+coordinated pipeline from wireframe to deployment.
+```
+
+**Webtoon / Comic Production**
+```
+Build a harness for webtoon episode production. I need agents for story
+writing, character design prompts, panel layout planning, and dialogue
+editing. They should review each other's work for style consistency.
+```
+
+**YouTube Content Planning**
+```
+Build a harness for YouTube content creation. The team should research
+trending topics, write scripts, optimize titles/tags for SEO, and plan
+thumbnail concepts — all coordinated by a supervisor agent.
+```
+
+**Code Review & Refactoring**
+```
+Build a harness for comprehensive code review. I want parallel agents
+checking architecture, security vulnerabilities, performance bottlenecks,
+and code style — then merging all findings into a single report.
+```
+
+**Technical Documentation**
+```
+Build a harness that generates API documentation from this codebase.
+Agents should analyze endpoints, write descriptions, generate usage
+examples, and review for completeness.
+```
+
+**Data Pipeline Design**
+```
+Build a harness for designing data pipelines. I need agents for schema
+design, ETL logic, data validation rules, and monitoring setup that
+delegate sub-tasks hierarchically.
+```
+
+**Marketing Campaign**
+```
+Build a harness for marketing campaign creation. The team should research
+the target market, write ad copy, design visual concepts, and set up
+A/B test plans with iterative quality review.
+```
+
 ## Built with Harness
 
 ### Harness 100
